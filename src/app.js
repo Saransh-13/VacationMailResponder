@@ -16,7 +16,6 @@ app.listen(process.env.PORT, () => {
 
   const job = schedule.scheduleJob(rule, async function () {
     try {
-      console.log("api");
       const response = await axios.get('http://localhost:8000/api/mail/checkNewMail');
       console.log(response.data);
   } catch (error) {

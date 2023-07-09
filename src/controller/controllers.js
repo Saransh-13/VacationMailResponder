@@ -126,7 +126,7 @@ async function checkNewEmails(req, res) {
       const lastReplyDate = new Date(
         parseInt(thread.messages[thread.messages.length - 1].internalDate)
       );
-      console.log(lastReplyDate);
+      // console.log(lastReplyDate);
       if (!hasReplies && lastReplyDate >= givenDate) {
         await sendEmailReply(messageId, "Reply content here", thread.threadId);
         await addLabelAndMoveEmail(messageId, "Vacation");
@@ -140,7 +140,6 @@ async function checkNewEmails(req, res) {
 }
 
 async function sendEmailReply(messageId, replyContent, threadId) {
-  console.log("id is" + messageId);
   const auth = await Auth.getAuthenticatedClient();
 
   const gmail = google.gmail({ version: "v1", auth });
@@ -150,13 +149,13 @@ async function sendEmailReply(messageId, replyContent, threadId) {
     id: messageId,
   });
   const originalMessage = messageResponse.data;
-  console.log(originalMessage);
+  // console.log(originalMessage);
 
   const replySubject = `${
     originalMessage.payload.headers.find((header) => header.name === "Subject")
       .value
   }`;
-  console.log(originalMessage.payload.headers);
+  // console.log(originalMessage.payload.headers);
   const replyTo = originalMessage.payload.headers.find(
     (header) => header.name === "From"
   ).value;
