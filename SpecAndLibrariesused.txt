@@ -1,0 +1,26 @@
+Specifications:
+
+Language: JavaScript (Node.js)
+Email Provider: Gmail
+Authentication: "Login with Google" API (OAuth2)
+Functionality: Check for new emails, send replies, add labels, and move emails within Gmail
+Interval: Randomized intervals between 45 to 120 seconds for checking new emails
+
+Libraries and APIs used:
+
+Node.js: A JavaScript runtime environment that allows executing JavaScript code outside of a web browser.
+googleapis: A library for interacting with various Google APIs, including the Gmail API, to perform actions such as reading emails, sending emails, and managing labels.
+node-schedule: A library that provides an easy-to-use interface for scheduling recurring tasks based on cron-like expressions. Used to schedule the periodic checking of new emails.
+readline: A built-in Node.js module that provides an interface for reading input from a readable stream, such as the command line.
+util: A built-in Node.js module that provides utility functions for various common programming tasks.
+The googleapis library is used to interact with the Gmail API, allowing the app to authenticate, fetch emails, send replies, manage labels, and modify email threads.
+
+The node-schedule library is used to schedule the periodic checking of new emails at randomized intervals between 45 to 120 seconds.
+
+The readline module is utilized for obtaining user input, particularly when requesting the authorization code during the initial authentication process.
+
+The util module provides utility functions, such as the promisify function, which converts callback-based functions to return Promises, making it easier to work with asynchronous operations.
+
+These libraries and APIs enable the app to connect with Gmail, authenticate the user, perform operations on emails, and implement the required functionality.
+
+Please note that specific versions of these libraries may vary based on the project's requirements and the latest versions available at the time of development.
